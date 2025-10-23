@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jasa Kurir Pribadi - Akmal Dafa</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Reset & Umum */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f9fbfd;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-bottom: 20px;
+        color: #1e3a8a;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #2563eb;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #1d4ed8;
+        transform: scale(1.05);
+      }
+
+      /* Header & Navigasi */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1e3a8a;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .nav-links a {
+        font-weight: 600;
+        color: #4b5563;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      /* Tombol Hamburger */
+      .hamburger {
+        display: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #1e3a8a;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+        text-align: center;
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      /* Tentang Saya */
+      .about-content {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .profile-img {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+      }
+
+      .profile-img img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #dbeafe;
+      }
+
+      .about-text {
+        flex: 2;
+        min-width: 300px;
+      }
+
+      /* Layanan */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      .service-card {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-card i {
+        font-size: 2rem;
+        color: #2563eb;
+        margin-bottom: 15px;
+      }
+
+      /* Testimoni */
+      .testimonials {
+        background-color: #eff6ff;
+        border-radius: 10px;
+        padding: 25px;
+        margin-top: 20px;
+      }
+
+      .testimonial {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        border-left: 3px solid #2563eb;
+      }
+
+      /* Galeri */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Kontak */
+      #kontak {
+        background-color: #f1f5f9;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .contact-links a {
+        font-size: 1.2rem;
+        color: white;
+        background: #2563eb;
+        padding: 15px 30px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+      }
+
+      .contact-links a:hover {
+        transform: scale(1.08) rotate(2deg);
+        box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
+        background: #1d4ed8;
+      }
+
+      .contact-links i {
+        font-size: 1.5rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1e3a8a;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      /* Responsif */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          background: white;
+          flex-direction: column;
+          width: 200px;
+          padding: 20px;
+          gap: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-links.active {
+          transform: translateX(0);
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .contact-links a {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Kurir Akmal Dafa</div>
+          <i class="fa-solid fa-bars hamburger" id="hamburger-menu"></i>
+          <div class="nav-links" id="nav-links">
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#galeri">Galeri</a>
+            <a href="#kontak">Hubungi</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Beranda -->
+    <section id="beranda" class="hero">
+      <div class="container">
+        <h1>Halo, Saya Akmal Dafa</h1>
+        <p>
+          Menyediakan jasa kurir pribadi yang cepat, aman, dan terpercaya di
+          wilayah Anda.
+        </p>
+        <a href="#kontak" class="btn">Hubungi Saya</a>
+      </div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section id="tentang">
+      <div class="container">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+          <div class="profile-img">
+            <img src="img.profil/Profil.jpeg" alt="Foto Profil Akmal Dafa" />
+          </div>
+          <div class="about-text">
+            <h3>Akmal Dafa</h3>
+            <p>
+              <strong>Lokasi:</strong> BTN MEDY BRATA JL. MERAK KILO 4, KOTA
+              BAUBAU
+            </p>
+            <p>
+              <strong>Pengalaman:</strong> 3+ tahun pengalaman pengiriman
+              dokumen & paket lokal dengan fokus kecepatan dan keamanan.
+            </p>
+            <p><strong>Motto:</strong> “Cepat, Aman, Sampai Tepat Waktu!”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layanan -->
+    <section id="layanan">
+      <div class="container">
+        <h2>Layanan Kurir</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <i class="fas fa-file-contract"></i>
+            <h3>Antar-Jemput Dokumen</h3>
+            <p>
+              Pengiriman dokumen penting (kontrak, surat, sertifikat) dengan
+              keamanan tinggi.
+            </p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-box"></i>
+            <h3>Paket Cepat Lokal</h3>
+            <p>Pengiriman paket dalam kota cepat dan aman.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Area Jangkauan</h3>
+            <p>Wilayah Baubau dan sekitarnya.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-clock"></i>
+            <h3>Jam Operasional</h3>
+            <p>Setiap hari, pukul 07.00 – 20.00 WITA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni">
+      <div class="container">
+        <h2>Testimoni Pelanggan</h2>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>
+              "Alhamdulillah kurirnya amanah, sopan, dan on time. Jazakumullahu
+              khairan"
+            </p>
+            <strong>– Ummu Naufal, Baubau</strong>
+          </div>
+          <div class="testimonial">
+            <p>"Baik, sopan, dan senyumnya manis 😄"</p>
+            <strong>– Zizi, Baubau</strong>
+          </div>
+          <div class="testimonial">
+            <p>"Orangnya ramah, sopan dan tepat waktu"</p>
+            <strong>– Emilia Kebubun, Baubau</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri">
+      <div class="container">
+        <h2>Galeri Pengantaran</h2>
+        <div class="gallery">
+          <img src="img/Supra 1.jpeg" alt="Supra" />
+          <img src="img/Supra 2.jpeg" alt="Supra" />
+          <img src="img/Beat.jpeg" alt="Beat" />
+          <img src="img/Scoopy 1.jpeg" alt="Scoopy" />
+          <img src="img/Scoopy 2.jpeg" alt="Scoopy" />
+          <img src="img/Scoopy 3.jpeg" alt="Scoopy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak">
+      <div class="container">
+        <h2>Hubungi Saya</h2>
+        <p>Hubungi langsung melalui tombol di bawah ini:</p>
+        <div class="contact-links">
+          <a href="https://wa.me/6281225721415" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a
+            href="https://www.instagram.com/akmldffasmsi?igsh=MXE0ZDd4bmdiOWoyNA=="
+            target="_blank"
+          >
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 Jasa Kurir Pribadi oleh Akmal Dafa. Semua hak dilindungi.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JS Menu & Smooth Scroll -->
+    <script>
+      // Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+          // Tutup menu setelah klik
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Toggle menu
+      const hamburger = document.getElementById("hamburger-menu");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Klik di luar menu untuk menutup
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
